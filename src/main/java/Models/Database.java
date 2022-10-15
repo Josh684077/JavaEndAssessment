@@ -4,33 +4,40 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Database {
-    public List<User> users = new ArrayList<>();
+    private List<User> users = new ArrayList<>();
+    private List<Member> members = new ArrayList<>();
+
 
     public Database()
     {
+        //Initialise Users
         users.add(new User("user1", "password1"));
         users.add(new User("user2", "password2"));
         users.add(new User("user3", "password3"));
         users.add(new User("user4", "password4"));
     }
 
-    public int validateLogin(User loginUser)
-    {
+    public User validateLogin(String username, String password) throws Exception {
         for (User user: users)
         {
-            if (loginUser.username == user.username)
+            if (username.equalsIgnoreCase(user.getUsername()))
             {
-                if (loginUser.password == user.password)
+                if (password.equals(user.getPassword()))
                 {
-                    //If username & password match
-                    return 0;
+                    //If both username & password match a user in db
+                    return user;
                 }
-                //If username matched but password didn't
-                return 1;
+                //If username matched a user in db but password did not
+                throw new Exception("Incorrect password.");
             }
         }
-        //If username didn't match
-        return 2;
+        //If username didn't match with a user in db
+        throw new Exception("Username is not registered in our database.");
     }
+
+    public User getUser(String username){
+        return new User("user1", "password1");
+    }
+
 }
 
