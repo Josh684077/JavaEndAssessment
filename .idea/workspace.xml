@@ -4,22 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="924ad1eb-9648-46e8-8587-08848ea723dc" name="Changes" comment="login basic">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Models/Book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Models/Member.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/LibraryApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/LoginWindowController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/MainWindowController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/nl/inholland/endassessment/main-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/nl/inholland/endassessment/style.css" afterDir="false" />
+    <list default="true" id="924ad1eb-9648-46e8-8587-08848ea723dc" name="Changes" comment="login finished">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Book.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Models/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Member.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/HelloApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/HelloController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/nl/inholland/endassessment/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/nl/inholland/endassessment/login-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/LibraryApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/LibraryApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/LoginWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/LoginWindowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/MainWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/MainWindowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/nl/inholland/endassessment/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/nl/inholland/endassessment/main-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/nl/inholland/endassessment/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/nl/inholland/endassessment/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +90,11 @@
       <workItem from="1665664897447" duration="9108000" />
       <workItem from="1665726536308" duration="2974000" />
       <workItem from="1665745252449" duration="16438000" />
-      <workItem from="1665856065096" duration="2152000" />
+      <workItem from="1665856065096" duration="4628000" />
+      <workItem from="1666004431761" duration="2479000" />
+      <workItem from="1666098042354" duration="9380000" />
+      <workItem from="1666175785412" duration="8114000" />
+      <workItem from="1666193238135" duration="3949000" />
     </task>
     <task id="LOCAL-00001" summary="login basic">
       <created>1664862628395</created>
@@ -104,7 +103,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664862628395</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="login finished">
+      <created>1665858330615</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1665858330615</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -123,6 +129,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="login basic" />
-    <option name="LAST_COMMIT_MESSAGE" value="login basic" />
+    <MESSAGE value="login finished" />
+    <option name="LAST_COMMIT_MESSAGE" value="login finished" />
   </component>
 </project>

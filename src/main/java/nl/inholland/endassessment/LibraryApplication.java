@@ -28,15 +28,15 @@ public class LibraryApplication extends Application {
         launch();
     }
 
-    public static void openMainWindow(User user){
+    public static void openMainWindow(User user) throws IOException {
         try{
             FXMLLoader fxmlLoader = new FXMLLoader(LibraryApplication.class.getResource("main-view.fxml"));
             fxmlLoader.setController(new MainWindowController(user));
-            Scene scene = new Scene(fxmlLoader.load(), 800, 400);
+            Scene scene = new Scene(fxmlLoader.load(), 730, 400);
             stage.setScene(scene);
         }
         catch (Exception e){
-
+            throw e;
         }
     }
 }

@@ -1,3 +1,29 @@
 #errorText{
     -fx-text-fill: red;
 }
+#mainWindow{
+    -fx-background-color: black;
+}
+.tab{
+    -fx-background-color: lightgrey;
+}
+
+.tabTitle{
+    -fx-font-size: 18px;
+    -fx-text-fill: rgb(31, 31, 31);
+}
+
+.button{
+    -fx-background-color: rgb(62, 75, 218);
+    -fx-text-fill: white;
+}
+
+.addButton{
+    -fx-background-color: rgb(16, 115, 22);
+    -fx-text-fill: white;
+}
+
+.deleteButton{
+    -fx-background-color: rgb(161, 0, 0);
+    -fx-text-fill: white;
+}

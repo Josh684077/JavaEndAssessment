@@ -19,28 +19,22 @@ public class LoginWindowController {
     @FXML
     private PasswordField txtPassword;
     @FXML
-    private Label lblLoginTitle;
-    @FXML
     private Label lblLoginError = new Label();
 
     //On pressing login button
     @FXML
     protected void onBtnLoginClick(){
+        try {
+            if (txtUsername.getText().isEmpty() || txtPassword.getText().isEmpty())
+                throw new RuntimeException("Please enter a username and a password.");
 
-        //If both textboxes have input in them, validate login
-        if (!txtUsername.getText().isEmpty() && !txtPassword.getText().isEmpty()) {
-            try {
-                //Validate login
-                User loggedInUser = database.validateLogin(txtUsername.getText(), txtPassword.getText());
+            //Validate login
+            User loggedInUser = database.loginUser(txtUsername.getText(), txtPassword.getText());
 
-                LibraryApplication.openMainWindow(loggedInUser);
-            }
-            catch (Exception ex) {
-                lblLoginError.setText(ex.getMessage());
-            }
+            LibraryApplication.openMainWindow(loggedInUser);
         }
-        else {
-            lblLoginError.setText("Please enter a username and a password.");
+        catch (Exception ex) {
+            lblLoginError.setText(ex.getMessage());
         }
     }
 }
