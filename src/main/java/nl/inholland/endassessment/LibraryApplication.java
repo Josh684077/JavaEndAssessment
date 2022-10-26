@@ -1,5 +1,6 @@
 package nl.inholland.endassessment;
 
+import Models.Database;
 import Models.User;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +12,7 @@ import java.io.IOException;
 public class LibraryApplication extends Application {
 
     private static Stage stage;
+
     @Override
     public void start(Stage stage) throws IOException {
         this.stage = stage;
@@ -33,6 +35,7 @@ public class LibraryApplication extends Application {
             FXMLLoader fxmlLoader = new FXMLLoader(LibraryApplication.class.getResource("main-view.fxml"));
             fxmlLoader.setController(new MainWindowController(user));
             Scene scene = new Scene(fxmlLoader.load(), 730, 400);
+            stage.setTitle("Library System");
             stage.setScene(scene);
         }
         catch (Exception e){

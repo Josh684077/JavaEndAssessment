@@ -12,6 +12,7 @@ public class LoginWindowController {
 
     private Database database = new Database();
 
+
     @FXML
     private Button btnLogin;
     @FXML

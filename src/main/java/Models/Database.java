@@ -20,8 +20,6 @@ public class Database {
         initialiseMembers();
     }
 
-
-
     private void initialiseUsers(){
 
         users.add(new User("user1", "password1", "Wim"));
@@ -100,7 +98,7 @@ public class Database {
             if(id == book.getId())
                 return book;
         }
-        throw new NullPointerException("No book with given ID");
+        throw new NullPointerException("No book with the given ID");
     }
 
     public Member getMemberById(int id){
