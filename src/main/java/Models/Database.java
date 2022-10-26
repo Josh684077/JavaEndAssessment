@@ -1,24 +1,37 @@
 package Models;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import CustomExceptions.IncorrectPasswordException;
+import CustomExceptions.ItemNotFoundException;
+import CustomExceptions.MemberNotFoundException;
+import CustomExceptions.UsernameNotFoundException;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Database {
+    //Attributes
     private List<User> users = new ArrayList<>();
-    private List<Book> books = new ArrayList<>();
+    private List<Item> items = new ArrayList<>();
     private List<Member> members = new ArrayList<>();
+    private int nextItemId;
+    private int nextMemberId;
 
-    private int bookId;
-    private int memberId;
-
+    //Constructor
     public Database(){
         initialiseUsers();
         initialiseBooks();
         initialiseMembers();
     }
+
+    //Getters
+    public List<Item> getItems() {
+        return items;
+    }
+    public List<Member> getMembers() {
+        return members;
+    }
+
 
     private void initialiseUsers(){
 
@@ -30,26 +43,26 @@ public class Database {
 
     private void initialiseBooks(){
 
-        books.add(new Book(1, "Of Mice and Men", "John Steinbeck"));
-        books.add(new Book(2, "The Great Gatsby", "F. Scott Fitzgerald"));
-        books.add(new Book(3, "Titans of War", "Wilbur Smith"));
-        books.add(new Book(4, "The Final Empire", "Brandon Sanderson"));
-
-        bookId = 5;
+        items.add(new Item(1, "Of Mice and Men", "John Steinbeck"));
+        items.add(new Item(2, "The Great Gatsby", "F. Scott Fitzgerald"));
+        items.add(new Item(3, "Titans of War", "Wilbur Smith"));
+        items.add(new Item(4, "The Final Empire", "Brandon Sanderson"));
+        nextItemId = 5;
     }
 
     private void initialiseMembers(){
         try {
-            members.add(new Member(1, "Michael", "Scott", new SimpleDateFormat("dd-MM-yyyy").parse("03-10-1974")));
-            members.add(new Member(2, "Pam", "Beesly", new SimpleDateFormat("dd-MM-yyyy").parse("03-06-1990")));
-            members.add(new Member(3, "Jim", "Halpert", new SimpleDateFormat("dd-MM-yyyy").parse("03-11-1986")));
-            members.add(new Member(4, "Dwight", "Schrute", new SimpleDateFormat("dd-MM-yyyy").parse("03-03-1985")));
-        } catch (ParseException e) {
+            members.add(new Member(1, "Michael", "Scott", LocalDate.of(1974, 10, 3)));
+            members.add(new Member(2, "Pam", "Beesly", LocalDate.of(1990, 6, 15)));
+            members.add(new Member(3, "Jim", "Halpert", LocalDate.of(1986, 11, 6)));
+            members.add(new Member(4, "Dwight", "Schrute", LocalDate.of(1985, 3, 21)));
+            nextMemberId = 5;
+        }
+        catch (Exception e) {
             throw new RuntimeException(e);
         }
 
 
-        memberId = 5;
     }
 
     public User loginUser(String username, String password) throws Exception {
@@ -63,46 +76,43 @@ public class Database {
                     return user;
                 }
                 //If username matched a user in db but password did not
-                throw new Exception("Incorrect password.");
+                throw new IncorrectPasswordException();
             }
         }
         //If username didn't match with a user in db
-        throw new Exception("Username is not registered in our database.");
+        throw new UsernameNotFoundException();
     }
 
-    public List<Member> getAllMembers(){
-        return members;
+    public void addItem(Item newItem){
+        newItem.setId(nextItemId);
+        items.add(newItem);
+
+        nextItemId++;
     }
 
-    public List<Book> getAllBooks() {
-        return books;
+    public void addMember(Member newMember){
+        newMember.setId(nextMemberId);
+        members.add(newMember);
+
+        nextMemberId++;
     }
 
-    public void addMember(String firstName, String lastName, Date dateOfBirth){
-        int newMemberId = (memberId+1);
-        members.add(new Member(newMemberId, firstName, lastName, dateOfBirth));
+    public Item getItemById(int id) throws Exception {
+        for (Item item : items){
 
-        memberId++;
-    }
-
-    public void addBook(String title, String author){
-        int newBookId = (bookId+1);
-        books.add(new Book(newBookId, title, author));
-
-        bookId++;
-    }
-
-    public Book getBookById(int id){
-        for (Book book: books)
-        {
-            if(id == book.getId())
-                return book;
+            if(id == item.getId())
+                return item;
         }
-        throw new NullPointerException("No book with the given ID");
+        throw new ItemNotFoundException("No item with the given ID");
     }
 
-    public Member getMemberById(int id){
-        return members.get(1);
+    public Member getMemberById(int id) throws Exception {
+        for (Member member : members){
+             if (id == member.getId())
+                return member;
+        }
+        throw new MemberNotFoundException("No member with the given ID");
     }
+
 }
 

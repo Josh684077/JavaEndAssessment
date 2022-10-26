@@ -12,31 +12,28 @@
 
 <AnchorPane id="mainWindow" fx:id="mainPane" prefHeight="400.0" prefWidth="730.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TabPane layoutY="53.0" prefHeight="347.0" prefWidth="755.0" stylesheets="@style.css" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutY="53.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="347.0" prefWidth="755.0" stylesheets="@style.css" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab fx:id="lendingTab" text="Lending/Receiving">
+          <Tab fx:id="lendingTab" styleClass="tabText" text="Lending/Receiving">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="tab" stylesheets="@style.css">
                      <children>
                         <Button fx:id="btnLendOut" layoutX="191.0" layoutY="156.0" mnemonicParsing="false" onAction="#onBtnLendOutClick" text="Lend out" />
                         <Button fx:id="btnReceive" layoutX="512.0" layoutY="156.0" mnemonicParsing="false" onAction="#onBtnReceiveClick" text="Receive" />
-                        <TextField fx:id="txtLendingBookId" layoutX="105.0" layoutY="72.0" />
-                        <TextField fx:id="txtLendingMemberId" layoutX="105.0" layoutY="120.0" />
+                        <TextField fx:id="txtLendingBookId" layoutX="105.0" layoutY="72.0" onAction="#onTxtLendingBookIdAction" />
+                        <TextField fx:id="txtLendingMemberId" layoutX="105.0" layoutY="120.0" onAction="#onTxtLendingMemberIdAction" />
                         <TextField fx:id="txtReceivingBookId" layoutX="420.0" layoutY="120.0" />
                         <Label fx:id="lblLendingTitle" layoutX="105.0" layoutY="14.0" styleClass="tabTitle" stylesheets="@style.css" text="Lending" />
                         <Label layoutX="417.0" layoutY="14.0" styleClass="tabTitle" stylesheets="@style.css" text="Receiving" />
-                        <Label layoutX="105.0" layoutY="50.0" text="Book ID" />
+                        <Label layoutX="105.0" layoutY="50.0" text="Item ID" />
                         <Label layoutX="105.0" layoutY="98.0" text="Member ID" />
-                        <Label layoutX="420.0" layoutY="98.0" text="Book ID" />
-                        <Label fx:id="lblLendingBookTitle" layoutX="269.0" layoutY="70.0" prefHeight="30.0" prefWidth="129.0" text="book name" wrapText="true" />
-                        <Label fx:id="lblLendingMemberName" layoutX="269.0" layoutY="118.0" prefHeight="30.0" prefWidth="129.0" text="member name" wrapText="true" />
-                        <Label fx:id="lblReceivingBookTitle" layoutX="574.0" layoutY="118.0" prefHeight="30.0" prefWidth="167.0" text="book name" />
-                        <Label fx:id="lblLendingError" layoutX="105.0" layoutY="212.0" prefHeight="17.0" prefWidth="145.0" text="Pop-up success / error" />
-                        <Label fx:id="lblReceiveError" layoutX="417.0" layoutY="212.0" prefHeight="17.0" prefWidth="149.0" text="Pop-up success / error" />
+                        <Label layoutX="420.0" layoutY="98.0" text="Item ID" />
+                        <Label fx:id="lblLendingPopup" layoutX="105.0" layoutY="212.0" prefHeight="17.0" prefWidth="145.0" text="Pop-up success / error" />
+                        <Label fx:id="lblReceivePopup" layoutX="417.0" layoutY="212.0" prefHeight="17.0" prefWidth="145.0" text="Pop-up success / error" />
                      </children></AnchorPane>
             </content>
           </Tab>
-            <Tab fx:id="collectionTab" text="Collection">
+            <Tab fx:id="collectionTab" styleClass="tabText" text="Collection">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="tab">
                      <children>
@@ -55,7 +52,7 @@
                      </children></AnchorPane>
               </content>
             </Tab>
-            <Tab fx:id="membersTab" text="Members">
+            <Tab fx:id="membersTab" styleClass="tabText" text="Members">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="tab" stylesheets="@style.css">
                      <children>
@@ -63,9 +60,9 @@
                         <TableView fx:id="tblMembers" layoutX="14.0" layoutY="59.0" prefHeight="200.0" prefWidth="630.0">
                           <columns>
                             <TableColumn fx:id="colMemberId" prefWidth="93.0" text="Member Code" />
-                            <TableColumn fx:id="colMemberFirstName" prefWidth="150.0" text="First Name" />
-                              <TableColumn fx:id="colMemberLastName" prefWidth="176.79998779296875" text="Last Name" />
-                              <TableColumn fx:id="colMemberBirthDate" prefWidth="121.5999755859375" text="Date of Birth" />
+                            <TableColumn fx:id="colMemberFirstName" prefWidth="220.0" text="First Name" />
+                              <TableColumn fx:id="colMemberLastName" prefWidth="180.0" text="Last Name" />
+                              <TableColumn fx:id="colMemberBirthDate" prefWidth="136.0" text="Date of Birth" />
                           </columns>
                         </TableView>
                         <Button fx:id="btnMemberAdd" layoutX="468.0" layoutY="270.0" mnemonicParsing="false" onAction="#onBtnMemberAddClick" styleClass="addButton" stylesheets="@style.css" text="Add" />

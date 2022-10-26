@@ -1,7 +1,9 @@
 package nl.inholland.endassessment;
 
+import CustomExceptions.EmptyTextboxException;
 import Models.Database;
 import Models.User;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -24,10 +26,10 @@ public class LoginWindowController {
 
     //On pressing login button
     @FXML
-    protected void onBtnLoginClick(){
+    protected void onBtnLoginClick(ActionEvent actionEvent){
         try {
             if (txtUsername.getText().isEmpty() || txtPassword.getText().isEmpty())
-                throw new RuntimeException("Please enter a username and a password.");
+                throw new EmptyTextboxException("Please enter a username and a password.");
 
             //Validate login
             User loggedInUser = database.loginUser(txtUsername.getText(), txtPassword.getText());

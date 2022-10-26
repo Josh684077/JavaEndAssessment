@@ -27,3 +27,7 @@
     -fx-background-color: rgb(161, 0, 0);
     -fx-text-fill: white;
 }
+
+.tabText{
+    -fx-font-size: 14px;
+}

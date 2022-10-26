@@ -14,16 +14,15 @@ public class User implements Serializable {
         this.name = name;
     }
 
+    //Getters
     public String getUsername()
     {
         return username;
     }
-
     public String getPassword()
     {
         return password;
     }
-
     public String getName()
     {
         return name;

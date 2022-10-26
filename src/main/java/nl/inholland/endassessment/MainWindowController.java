@@ -1,24 +1,32 @@
 package nl.inholland.endassessment;
 
-import Models.Book;
+import CustomExceptions.EmptyTextboxException;
+import Models.Item;
 import Models.Database;
 import Models.Member;
 import Models.User;
+import javafx.beans.InvalidationListener;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.text.Text;
 
 import java.net.URL;
-import java.util.Date;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class MainWindowController implements Initializable{
 
     private User loggedInUser;
 
+    //Data
     private Database database;
+    private ObservableList<Item> items;
+    private ObservableList<Member> members;
 
     //Main pane
     @FXML
@@ -30,7 +38,7 @@ public class MainWindowController implements Initializable{
     @FXML
     TabPane tabControl;
 
-    //Lending/Receiving Tab
+    //---Lending/Receiving Tab---
     @FXML
     Tab lendingTab;
     @FXML
@@ -40,13 +48,9 @@ public class MainWindowController implements Initializable{
     @FXML
     TextField txtReceivingBookId;
     @FXML
-    Label lblLendingBookTitle = new Label();
+    Label lblLendingPopup = new Label();
     @FXML
-    Label lblLendingMemberName = new Label();
-    @FXML
-    Label lblLendingError = new Label();
-    @FXML
-    Label lblReceivingError = new Label();
+    Label lblReceivingPopup = new Label();
 
     //---Collection Tab---
     @FXML
@@ -54,15 +58,15 @@ public class MainWindowController implements Initializable{
 
     //Collection table
     @FXML
-    TableView<Book> tblCollection;
+    TableView<Item> tblCollection;
     @FXML
-    TableColumn<Book, String> colBookId;
+    TableColumn<Item, String> colBookId;
     @FXML
-    TableColumn<Book, String> colBookTitle;
+    TableColumn<Item, String> colBookTitle;
     @FXML
-    TableColumn<Book, String> colBookAuthor;
+    TableColumn<Item, String> colBookAuthor;
     @FXML
-    TableColumn<Book, String> colBookAvailable;
+    TableColumn<Item, String> colBookAvailable;
 
     //Collection buttons
     @FXML
@@ -71,8 +75,6 @@ public class MainWindowController implements Initializable{
     Button btnBookUpdate;
     @FXML
     Button btnBookDelete;
-
-
 
     //---Members Tab---
     @FXML
@@ -88,30 +90,73 @@ public class MainWindowController implements Initializable{
     @FXML
     TableColumn<Member, String> colMemberLastName;
     @FXML
-    TableColumn<Member, String> dateOfBirth;
+    TableColumn<Member, String> colMemberBirthDate;
 
-
-
-
+    //Constructor
     public MainWindowController(User user){
         this.loggedInUser = user;
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        lblWelcomeUser.setText("Welcome, " + loggedInUser.getName());
+        //Instantiate database
         database = new Database();
+
+        try{
+            //Load observable lists from database
+            items = FXCollections.observableArrayList(database.getItems());
+            members = FXCollections.observableArrayList(database.getMembers());
+
+            //Load items list into collection tableview
+            colBookId.setCellValueFactory(cell -> new SimpleStringProperty(Integer.toString(cell.getValue().getId())));
+            colBookTitle.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getTitle()));
+            colBookAuthor.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getAuthor()));
+            colBookAvailable.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getAvailableAsString()));
+            tblCollection.setItems(items);
+
+            //Load members list into members tableview
+            colMemberId.setCellValueFactory(cell -> new SimpleStringProperty(Integer.toString(cell.getValue().getId())));
+            colMemberFirstName.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getFirstName()));
+            colMemberLastName.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getLastName()));
+            colMemberBirthDate.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getDateOfBirthAsString()));
+            tblMembers.setItems(members);
+
+        }
+        catch (Exception e){
+
+        }
+
+
+        //
+        lblWelcomeUser.setText("Welcome, " + loggedInUser.getName());
+
     }
 
     @FXML
     protected void onBtnLendOutClick(){
+        try{
+            if (txtLendingMemberId.getText().isEmpty() || txtLendingBookId.getText().isEmpty()){
+                throw new EmptyTextboxException("");
+            }
+
+            Member borrower;
+            Item item;
+        }
+        catch(Exception e){
+            lblLendingPopup.setText(e.getMessage());
+        }
 
         clearTextboxes();
     }
 
     @FXML
     protected void onBtnReceiveClick(){
+        try{
 
+        }
+        catch(Exception e){
+            lblReceivingPopup.setText(e.getMessage());
+        }
         clearTextboxes();
     }
 
@@ -145,6 +190,16 @@ public class MainWindowController implements Initializable{
 
     }
 
+    //If enter is pressed after entering book or member id, trigger lend out btn
+    @FXML
+    protected void onTxtLendingBookIdAction(){
+        onBtnLendOutClick();
+    }
+    @FXML
+    protected void onTxtLendingMemberIdAction(){
+        onBtnLendOutClick();
+    }
+
     private void loadAddBookPane(){
 
     }
@@ -166,7 +221,5 @@ public class MainWindowController implements Initializable{
         txtLendingBookId.setText("");
         txtLendingMemberId.setText("");
         txtReceivingBookId.setText("");
-        lblLendingBookTitle.setText("");
-        lblLendingMemberName.setText("");
     }
 }
