@@ -4,15 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="924ad1eb-9648-46e8-8587-08848ea723dc" name="Changes" comment="login finished">
+    <list default="true" id="924ad1eb-9648-46e8-8587-08848ea723dc" name="Changes" comment="fxml-way">
+      <change afterPath="$PROJECT_DIR$/src/main/java/CustomExceptions/DatabaseException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/CustomExceptions/ItemAvailabilityException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/CustomExceptions/WrongInputException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/AddItemWindowController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/AddMemberWindowController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/UpdateItemWindowController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/UpdateMemberWindowController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CustomExceptions/ItemNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CustomExceptions/ItemNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CustomExceptions/MemberNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CustomExceptions/MemberNotFoundException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Models/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Item.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Models/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/LibraryApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/LibraryApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/LoginWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/LoginWindowController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/MainWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/MainWindowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/nl/inholland/endassessment/login-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/nl/inholland/endassessment/login-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/nl/inholland/endassessment/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/nl/inholland/endassessment/main-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/nl/inholland/endassessment/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/nl/inholland/endassessment/style.css" afterDir="false" />
     </list>
@@ -95,6 +104,7 @@
       <workItem from="1666098042354" duration="9380000" />
       <workItem from="1666175785412" duration="8114000" />
       <workItem from="1666193238135" duration="3949000" />
+      <workItem from="1666854363178" duration="27671000" />
     </task>
     <task id="LOCAL-00001" summary="login basic">
       <created>1664862628395</created>

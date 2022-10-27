@@ -41,7 +41,7 @@ public class Item implements Serializable {
     public String getAuthor(){
         return author;
     }
-    public boolean isAvailable() {
+    public boolean getIsAvailable() {
         return isAvailable;
     }
     public String getAvailableAsString(){
@@ -61,7 +61,7 @@ public class Item implements Serializable {
     public void setAuthor(String author) {
         this.author = author;
     }
-    public void setAvailable(boolean available) {
+    public void setIsAvailable(boolean available) {
         isAvailable = available;
     }
 }

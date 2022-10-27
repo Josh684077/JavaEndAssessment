@@ -28,8 +28,8 @@
                         <Label layoutX="105.0" layoutY="50.0" text="Item ID" />
                         <Label layoutX="105.0" layoutY="98.0" text="Member ID" />
                         <Label layoutX="420.0" layoutY="98.0" text="Item ID" />
-                        <Label fx:id="lblLendingPopup" layoutX="105.0" layoutY="212.0" prefHeight="17.0" prefWidth="145.0" text="Pop-up success / error" />
-                        <Label fx:id="lblReceivePopup" layoutX="417.0" layoutY="212.0" prefHeight="17.0" prefWidth="145.0" text="Pop-up success / error" />
+                        <Label fx:id="lblLendingPopup" alignment="TOP_LEFT" layoutX="105.0" layoutY="212.0" prefHeight="50.0" prefWidth="180.0" wrapText="true" />
+                        <Label fx:id="lblReceivePopup" alignment="TOP_LEFT" layoutX="417.0" layoutY="212.0" prefHeight="50.0" prefWidth="180.0" wrapText="true" />
                      </children></AnchorPane>
             </content>
           </Tab>
@@ -46,9 +46,9 @@
                               <TableColumn fx:id="colBookAvailable" prefWidth="83.0" text="Available" />
                           </columns>
                         </TableView>
-                        <Button fx:id="btnBookAdd" layoutX="468.0" layoutY="270.0" mnemonicParsing="false" onAction="#onBtnBookAddClick" styleClass="addButton" stylesheets="@style.css" text="Add" />
-                        <Button fx:id="btnBookUpdate" layoutX="522.0" layoutY="270.0" mnemonicParsing="false" onAction="#onBtnBookUpdateClick" text="Update" />
-                        <Button fx:id="btnBookDelete" layoutX="593.0" layoutY="270.0" mnemonicParsing="false" onAction="#onBtnBookDeleteClick" styleClass="deleteButton" stylesheets="@style.css" text="Delete" />
+                        <Button fx:id="btnItemAdd" layoutX="468.0" layoutY="270.0" mnemonicParsing="false" onAction="#onBtnItemAddClick" styleClass="addButton" stylesheets="@style.css" text="Add" />
+                        <Button fx:id="btnItemUpdate" layoutX="522.0" layoutY="270.0" mnemonicParsing="false" onAction="#onBtnItemUpdateClick" text="Update" />
+                        <Button fx:id="btnItemDelete" layoutX="593.0" layoutY="270.0" mnemonicParsing="false" onAction="#onBtnItemDeleteClick" styleClass="deleteButton" stylesheets="@style.css" text="Delete" />
                      </children></AnchorPane>
               </content>
             </Tab>

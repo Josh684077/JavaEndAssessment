@@ -14,7 +14,6 @@ public class LoginWindowController {
 
     private Database database = new Database();
 
-
     @FXML
     private Button btnLogin;
     @FXML
@@ -26,7 +25,7 @@ public class LoginWindowController {
 
     //On pressing login button
     @FXML
-    protected void onBtnLoginClick(ActionEvent actionEvent){
+    protected void onBtnLoginClick(){
         try {
             if (txtUsername.getText().isEmpty() || txtPassword.getText().isEmpty())
                 throw new EmptyTextboxException("Please enter a username and a password.");
@@ -34,10 +33,20 @@ public class LoginWindowController {
             //Validate login
             User loggedInUser = database.loginUser(txtUsername.getText(), txtPassword.getText());
 
-            LibraryApplication.openMainWindow(loggedInUser);
+            LibraryApplication.openMainWindow(loggedInUser, database);
         }
         catch (Exception ex) {
             lblLoginError.setText(ex.getMessage());
         }
+    }
+
+    @FXML
+    protected void onTxtUsernameAction(){
+        onBtnLoginClick();
+    }
+
+    @FXML
+    protected void onTxtPasswordAction(){
+        onBtnLoginClick();
     }
 }

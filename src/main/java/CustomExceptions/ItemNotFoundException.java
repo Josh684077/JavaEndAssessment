@@ -3,7 +3,7 @@ package CustomExceptions;
 public class ItemNotFoundException extends Exception{
 
     public ItemNotFoundException() {
-        super("No item found with these specifications");
+        super("There is no item in our database with this ID.");
     }
 
     public ItemNotFoundException(String message) {

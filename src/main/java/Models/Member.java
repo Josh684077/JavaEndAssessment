@@ -23,6 +23,8 @@ public class Member implements Serializable {
         this.dateOfBirth = dateOfBirth;
     }
 
+
+
     public Member(int id, String firstName, String lastName, LocalDate dateOfBirth){
         this.id = id;
         this.firstName = firstName;
@@ -52,6 +54,15 @@ public class Member implements Serializable {
     //Setters
     public void setId(int id) {
         this.id = id;
+    }
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
 

@@ -1,4 +1,4 @@
-#errorText{
+.errorText{
     -fx-text-fill: red;
 }
 #mainWindow{
