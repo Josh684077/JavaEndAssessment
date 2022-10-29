@@ -73,6 +73,8 @@ public class MainWindowController implements Initializable{
     TableColumn<Item, String> colBookAuthor;
     @FXML
     TableColumn<Item, String> colBookAvailable;
+    @FXML
+    TextField txtSearchBoxCollection;
 
     //Collection buttons
     @FXML
@@ -99,6 +101,8 @@ public class MainWindowController implements Initializable{
     TableColumn<Member, String> colMemberLastName;
     @FXML
     TableColumn<Member, String> colMemberBirthDate;
+    @FXML
+    TextField txtSearchBoxMembers;
 
     //Members buttons
     @FXML
@@ -118,8 +122,8 @@ public class MainWindowController implements Initializable{
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         try{
-            loadItems();
-            loadMembers();
+            loadItems(database.getItems());
+            loadMembers(database.getMembers());
         }
         catch (Exception e){
 
@@ -129,11 +133,11 @@ public class MainWindowController implements Initializable{
         lblWelcomeUser.setText("Welcome, " + loggedInUser.getName());
     }
 
-    public void loadItems(){
+    public void loadItems(List<Item> itemsList){
 
         //Reload observable list from database
         items = null;
-        items = FXCollections.observableArrayList(database.getItems());
+        items = FXCollections.observableArrayList(itemsList);
 
         //Load items list into collection tableview
         colBookId.setCellValueFactory(cell -> new SimpleStringProperty(Integer.toString(cell.getValue().getId())));
@@ -145,11 +149,11 @@ public class MainWindowController implements Initializable{
         tblCollection.refresh();
     }
 
-    public void loadMembers(){
+    public void loadMembers(List<Member> membersList){
 
         //Reload observable lists from database
         members = null;
-        members = FXCollections.observableArrayList(database.getMembers());
+        members = FXCollections.observableArrayList(membersList);
 
         //Load members list into members tableview
         colMemberId.setCellValueFactory(cell -> new SimpleStringProperty(Integer.toString(cell.getValue().getId())));
@@ -209,15 +213,17 @@ public class MainWindowController implements Initializable{
             if(item.getIsAvailable())
                 throw new ItemAvailabilityException("This item has not been lent out.");
 
+            //Check item for late days and display popup
+            clearElements();
+            lblReceivePopup.setTextFill(Color.BLACK);
+            if(item.getLateDays() > 0)
+                lblReceivePopup.setText(item.getTitle() + " has been returned " + item.getLateDays() + " days late, and is available again.");
+            else
+                lblReceivePopup.setText(item.getTitle() + " has been returned on time and is available again.");
+
             //Update item and refresh tableview
             item.setIsAvailable(true);
             tblCollection.refresh();
-
-            //Display success popup
-            clearElements();
-            lblReceivePopup.setTextFill(Color.BLACK);
-            lblReceivePopup.setText(item.getTitle() + " has been returned and is available again.");
-
         }
         catch(NumberFormatException e){
             lblReceivePopup.setTextFill(Color.RED);
@@ -245,12 +251,10 @@ public class MainWindowController implements Initializable{
 
             LibraryApplication.openUpdateItemDialogue(database, this, item);
             clearElements();
-
         }
         catch (Exception e){
             lblCollectionError.setText(e.getMessage());
         }
-
     }
 
     @FXML
@@ -262,8 +266,7 @@ public class MainWindowController implements Initializable{
             Item item = tblCollection.getSelectionModel().getSelectedItem();
             database.deleteItem(item);
             clearElements();
-            loadItems();
-
+            loadItems(database.getItems());
         }
         catch (Exception e){
             lblCollectionError.setText(e.getMessage());
@@ -300,10 +303,45 @@ public class MainWindowController implements Initializable{
             Member member = tblMembers.getSelectionModel().getSelectedItem();
             database.deleteMember(member);
             clearElements();
-            loadMembers();
+            loadMembers(database.getMembers());
         }
         catch (Exception e){
             lblMembersError.setText(e.getMessage());
+        }
+    }
+
+    //Search boxes
+    @FXML
+    protected void onTxtSearchBoxCollectionTextChanged(){
+        String searchPhrase = txtSearchBoxCollection.getText();
+        if (searchPhrase.isEmpty())
+            loadItems(database.getItems());
+        else {
+            List<Item> items = database.getItems();
+            List<Item> filteredItems = new ArrayList<>();
+
+            for (Item item : items) {
+                if (item.getTitle().toLowerCase().contains((CharSequence)searchPhrase.toLowerCase()) || item.getAuthor().toLowerCase().contains((CharSequence)searchPhrase.toLowerCase()))
+                    filteredItems.add(item);
+            }
+            loadItems(filteredItems);
+        }
+    }
+
+    @FXML
+    protected void onTxtSearchBoxMembersTextChanged(){
+        List<Member> members = database.getMembers();
+        List<Member> filteredMembers = new ArrayList<>();
+
+        String searchPhrase = txtSearchBoxMembers.getText();
+        if (searchPhrase.isEmpty())
+            loadMembers(members);
+        else {
+            for (Member member : members) {
+                if (member.getFirstName().toLowerCase().contains((CharSequence)searchPhrase.toLowerCase()) || member.getLastName().toLowerCase().contains((CharSequence)searchPhrase.toLowerCase()))
+                    filteredMembers.add(member);
+            }
+            loadMembers(filteredMembers);
         }
     }
 
@@ -321,8 +359,6 @@ public class MainWindowController implements Initializable{
         onBtnReceiveClick();
     }
 
-
-
     private void clearElements(){
         //Clear textboxes and labels
         txtLendingBookId.setText("");
@@ -333,4 +369,6 @@ public class MainWindowController implements Initializable{
         lblCollectionError.setText("");
         lblMembersError.setText("");
     }
+
+
 }

@@ -14,6 +14,11 @@ public class Database {
     private List<Item> items;
     private List<Member> members;
 
+
+
+    private int nextItemId;
+    private int nextMemberId;
+
     //Constructor
     public Database(){
 
@@ -27,24 +32,11 @@ public class Database {
         return members;
     }
     public int getNextItemId() {
-        int highestItemId = 0;
-
-        for (Item item: items) {
-            if (item.getId() > highestItemId)
-                highestItemId = item.getId();
-        }
-
-        return (highestItemId+1);
+        return nextItemId;
     }
+
     public int getNextMemberId() {
-        int highestMemberId = 0;
-
-        for (Member member: members) {
-            if (member.getId() > highestMemberId)
-                highestMemberId = member.getId();
-        }
-
-        return (highestMemberId+1);
+        return nextMemberId;
     }
 
     public Item getItemById(int id) throws Exception {
@@ -65,6 +57,32 @@ public class Database {
         //Only reachable if the method does not return
         throw new MemberNotFoundException("No member with the given ID");
     }
+
+    //Private Setters for Next IDs, called after loading data
+    private void setNextItemId() {
+        int highestItemId = 0;
+
+        for (Item item: items) {
+            if (item.getId() > highestItemId)
+                highestItemId = item.getId();
+        }
+
+        this.nextItemId = (highestItemId + 1);
+    }
+
+    private void setNextMemberId() {
+        int highestMemberId = 0;
+
+        for (Member member: members) {
+            if (member.getId() > highestMemberId)
+                highestMemberId = member.getId();
+        }
+
+        this.nextMemberId = (highestMemberId + 1);
+    }
+
+
+    //Database methods
 
     public void loadData() throws DatabaseException {
         try{
@@ -90,6 +108,10 @@ public class Database {
         }
         catch (DatabaseException exception){
             throw new DatabaseException();
+        }
+        finally{
+            setNextItemId();
+            setNextMemberId();
         }
     }
     private void initialiseUsers(){
@@ -137,11 +159,13 @@ public class Database {
     public void addItem(Item newItem){
         newItem.setId(getNextItemId());
         items.add(newItem);
+        nextItemId++;
     }
 
     public void addMember(Member newMember){
         newMember.setId(getNextMemberId());
         members.add(newMember);
+        nextMemberId++;
     }
 
     public void deleteItem(Item item){

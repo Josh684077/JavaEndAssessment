@@ -87,7 +87,7 @@ public class LibraryApplication extends Application {
             stage.showAndWait();
 
             //After stage is closed, update tbl in mainviewcontroller
-            controller.loadItems();
+            controller.loadItems(database.getItems());
         }
         catch(Exception e){
             System.out.println(e.getMessage());
@@ -110,7 +110,7 @@ public class LibraryApplication extends Application {
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.showAndWait();
             //After stage is closed, update tbl in mainviewcontroller
-            controller.loadItems();
+            controller.loadItems(database.getItems());
         }
         catch(Exception e){
             System.out.println(e.getMessage());
@@ -133,7 +133,7 @@ public class LibraryApplication extends Application {
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.showAndWait();
             //After stage is closed, update tbl in mainviewcontroller
-            controller.loadMembers();
+            controller.loadMembers(database.getMembers());
         }
         catch(Exception e){
             System.out.println(e.getMessage());
@@ -156,7 +156,7 @@ public class LibraryApplication extends Application {
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.showAndWait();
             //After stage is closed, update tbl in mainviewcontroller
-            controller.loadMembers();
+            controller.loadMembers(database.getMembers());
         }
         catch(Exception e){
             System.out.println(e.getMessage());

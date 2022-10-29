@@ -28,8 +28,8 @@
                         <Label layoutX="105.0" layoutY="50.0" text="Item ID" />
                         <Label layoutX="105.0" layoutY="98.0" text="Member ID" />
                         <Label layoutX="420.0" layoutY="98.0" text="Item ID" />
-                        <Label fx:id="lblLendingPopup" alignment="TOP_LEFT" layoutX="105.0" layoutY="212.0" prefHeight="50.0" prefWidth="180.0" wrapText="true" />
-                        <Label fx:id="lblReceivePopup" alignment="TOP_LEFT" layoutX="417.0" layoutY="212.0" prefHeight="50.0" prefWidth="180.0" wrapText="true" />
+                        <Label fx:id="lblLendingPopup" alignment="TOP_LEFT" layoutX="105.0" layoutY="212.0" prefHeight="76.0" prefWidth="180.0" wrapText="true" />
+                        <Label fx:id="lblReceivePopup" alignment="TOP_LEFT" layoutX="417.0" layoutY="212.0" prefHeight="80.0" prefWidth="180.0" wrapText="true" />
                      </children></AnchorPane>
             </content>
           </Tab>
@@ -50,6 +50,8 @@
                         <Button fx:id="btnItemUpdate" layoutX="522.0" layoutY="270.0" mnemonicParsing="false" onAction="#onBtnItemUpdateClick" text="Update" />
                         <Button fx:id="btnItemDelete" layoutX="593.0" layoutY="270.0" mnemonicParsing="false" onAction="#onBtnItemDeleteClick" styleClass="deleteButton" stylesheets="@style.css" text="Delete" />
                         <Label fx:id="lblCollectionError" layoutX="148.0" layoutY="274.0" prefHeight="17.0" prefWidth="297.0" styleClass="errorText" />
+                        <TextField fx:id="txtSearchBoxCollection" layoutX="454.0" layoutY="29.0" onKeyTyped="#onTxtSearchBoxCollectionTextChanged" prefHeight="25.0" prefWidth="190.0" promptText="Search item" />
+                        <Label layoutX="454.0" layoutY="6.0" text="Search" />
                      </children></AnchorPane>
               </content>
             </Tab>
@@ -70,6 +72,8 @@
                         <Button fx:id="btnMemberUpdate" layoutX="522.0" layoutY="270.0" mnemonicParsing="false" onAction="#onBtnMemberUpdateClick" text="Update" />
                         <Button fx:id="btnMemberDelete" layoutX="593.0" layoutY="270.0" mnemonicParsing="false" onAction="#onBtnMemberDeleteClick" styleClass="deleteButton" stylesheets="@style.css" text="Delete" />
                         <Label fx:id="lblMembersError" layoutX="147.0" layoutY="274.0" prefHeight="17.0" prefWidth="297.0" styleClass="errorText" />
+                        <TextField fx:id="txtSearchBoxMembers" layoutX="454.0" layoutY="29.0" onKeyTyped="#onTxtSearchBoxMembersTextChanged" prefHeight="25.0" prefWidth="190.0" promptText="Search member" />
+                        <Label layoutX="454.0" layoutY="6.0" text="Search" />
                      </children></AnchorPane>
                </content>
             </Tab>

@@ -1,6 +1,8 @@
 package Models;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 public class Item implements Serializable {
 
@@ -9,6 +11,7 @@ public class Item implements Serializable {
     private String title;
     private String author;
     private boolean isAvailable;
+    private LocalDate lendDate;
 
     //private Member currentBorrower; (not implemented yet)
 
@@ -62,6 +65,20 @@ public class Item implements Serializable {
         this.author = author;
     }
     public void setIsAvailable(boolean available) {
+
+        //Add lend date if item is marked unavailable
+        if (available == false)
+            lendDate = LocalDate.now();
+        else
+            lendDate = null;
+
         isAvailable = available;
     }
+
+    public int getLateDays(){
+        int lendDays = (int)ChronoUnit.DAYS.between(lendDate, LocalDate.now());
+        int lateDays = lendDays - 21;
+        return lateDays;
+    }
+
 }

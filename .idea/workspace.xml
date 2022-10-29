@@ -4,23 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="924ad1eb-9648-46e8-8587-08848ea723dc" name="Changes" comment="almost finished">
-      <change afterPath="$PROJECT_DIR$/Items.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Members.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/CustomExceptions/NoSelectedElementException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/nl/inholland/endassessment/item-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/nl/inholland/endassessment/member-view.fxml" afterDir="false" />
+    <list default="true" id="924ad1eb-9648-46e8-8587-08848ea723dc" name="Changes" comment="serialisation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CustomExceptions/DatabaseException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CustomExceptions/DatabaseException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Items.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Items.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Members.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Members.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Models/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/AddItemWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/AddItemWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/AddMemberWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/AddMemberWindowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Item.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/LibraryApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/LibraryApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/LoginWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/LoginWindowController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/MainWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/MainWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/UpdateItemWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/UpdateItemWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/UpdateMemberWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/UpdateMemberWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/nl/inholland/endassessment/login-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/nl/inholland/endassessment/login-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/nl/inholland/endassessment/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/nl/inholland/endassessment/main-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,24 +42,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/joshu/Downloads/680886-KonradFigura-EndAssignment",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/joshu/Downloads/680886-KonradFigura-EndAssignment&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="LibraryApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="nl.inholland.endassessment.LibraryApplication" />
@@ -109,6 +100,8 @@
       <workItem from="1666854363178" duration="27832000" />
       <workItem from="1666937018408" duration="1431000" />
       <workItem from="1666952275979" duration="28731000" />
+      <workItem from="1667016450549" duration="60000" />
+      <workItem from="1667066784181" duration="5581000" />
     </task>
     <task id="LOCAL-00001" summary="login basic">
       <created>1664862628395</created>
@@ -131,7 +124,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666903386137</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="serialisation">
+      <created>1667016494105</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1667016494105</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -154,7 +154,8 @@
     <MESSAGE value="login finished" />
     <MESSAGE value="add item dialogue" />
     <MESSAGE value="almost finished" />
-    <option name="LAST_COMMIT_MESSAGE" value="almost finished" />
+    <MESSAGE value="serialisation" />
+    <option name="LAST_COMMIT_MESSAGE" value="serialisation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
