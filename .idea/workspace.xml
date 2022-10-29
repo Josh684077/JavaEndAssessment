@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="924ad1eb-9648-46e8-8587-08848ea723dc" name="Changes" comment="serialisation">
+    <list default="true" id="924ad1eb-9648-46e8-8587-08848ea723dc" name="Changes" comment="finished question mark">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Items.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Items.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Members.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Members.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/LibraryApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/LibraryApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/MainWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/MainWindowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/nl/inholland/endassessment/item-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/nl/inholland/endassessment/item-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/nl/inholland/endassessment/login-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/nl/inholland/endassessment/login-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/nl/inholland/endassessment/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/nl/inholland/endassessment/main-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/nl/inholland/endassessment/member-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/nl/inholland/endassessment/member-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +98,7 @@
       <workItem from="1666937018408" duration="1431000" />
       <workItem from="1666952275979" duration="28731000" />
       <workItem from="1667016450549" duration="60000" />
-      <workItem from="1667066784181" duration="5581000" />
+      <workItem from="1667066784181" duration="6736000" />
     </task>
     <task id="LOCAL-00001" summary="login basic">
       <created>1664862628395</created>
@@ -131,7 +128,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667016494105</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="finished question mark">
+      <created>1667072852371</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1667072852371</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,7 +159,8 @@
     <MESSAGE value="add item dialogue" />
     <MESSAGE value="almost finished" />
     <MESSAGE value="serialisation" />
-    <option name="LAST_COMMIT_MESSAGE" value="serialisation" />
+    <MESSAGE value="finished question mark" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished question mark" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
