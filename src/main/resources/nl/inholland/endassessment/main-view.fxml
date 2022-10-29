@@ -22,7 +22,7 @@
                         <Button fx:id="btnReceive" layoutX="512.0" layoutY="156.0" mnemonicParsing="false" onAction="#onBtnReceiveClick" text="Receive" />
                         <TextField fx:id="txtLendingBookId" layoutX="105.0" layoutY="72.0" onAction="#onTxtLendingBookIdAction" />
                         <TextField fx:id="txtLendingMemberId" layoutX="105.0" layoutY="120.0" onAction="#onTxtLendingMemberIdAction" />
-                        <TextField fx:id="txtReceivingBookId" layoutX="420.0" layoutY="120.0" />
+                        <TextField fx:id="txtReceivingBookId" layoutX="420.0" layoutY="120.0" onAction="#onTxtReceivingBookIdAction" />
                         <Label fx:id="lblLendingTitle" layoutX="105.0" layoutY="14.0" styleClass="tabTitle" stylesheets="@style.css" text="Lending" />
                         <Label layoutX="417.0" layoutY="14.0" styleClass="tabTitle" stylesheets="@style.css" text="Receiving" />
                         <Label layoutX="105.0" layoutY="50.0" text="Item ID" />
@@ -49,6 +49,7 @@
                         <Button fx:id="btnItemAdd" layoutX="468.0" layoutY="270.0" mnemonicParsing="false" onAction="#onBtnItemAddClick" styleClass="addButton" stylesheets="@style.css" text="Add" />
                         <Button fx:id="btnItemUpdate" layoutX="522.0" layoutY="270.0" mnemonicParsing="false" onAction="#onBtnItemUpdateClick" text="Update" />
                         <Button fx:id="btnItemDelete" layoutX="593.0" layoutY="270.0" mnemonicParsing="false" onAction="#onBtnItemDeleteClick" styleClass="deleteButton" stylesheets="@style.css" text="Delete" />
+                        <Label fx:id="lblCollectionError" layoutX="148.0" layoutY="274.0" prefHeight="17.0" prefWidth="297.0" styleClass="errorText" />
                      </children></AnchorPane>
               </content>
             </Tab>
@@ -68,6 +69,7 @@
                         <Button fx:id="btnMemberAdd" layoutX="468.0" layoutY="270.0" mnemonicParsing="false" onAction="#onBtnMemberAddClick" styleClass="addButton" stylesheets="@style.css" text="Add" />
                         <Button fx:id="btnMemberUpdate" layoutX="522.0" layoutY="270.0" mnemonicParsing="false" onAction="#onBtnMemberUpdateClick" text="Update" />
                         <Button fx:id="btnMemberDelete" layoutX="593.0" layoutY="270.0" mnemonicParsing="false" onAction="#onBtnMemberDeleteClick" styleClass="deleteButton" stylesheets="@style.css" text="Delete" />
+                        <Label fx:id="lblMembersError" layoutX="147.0" layoutY="274.0" prefHeight="17.0" prefWidth="297.0" styleClass="errorText" />
                      </children></AnchorPane>
                </content>
             </Tab>

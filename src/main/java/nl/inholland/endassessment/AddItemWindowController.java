@@ -19,7 +19,6 @@ public class AddItemWindowController implements Initializable {
 
     Database database;
     Stage stage;
-    MainWindowController controller;
 
     @FXML
     Label lblItemTitle = new Label();
@@ -35,13 +34,10 @@ public class AddItemWindowController implements Initializable {
     Button btnItemAction = new Button();
 
 
-    public AddItemWindowController(Database database, Stage stage, MainWindowController controller) {
+    public AddItemWindowController(Database database, Stage stage) {
         this.database = database;
         this.stage = stage;
-        this.controller = controller;
     }
-
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -60,9 +56,10 @@ public class AddItemWindowController implements Initializable {
                 throw new EmptyTextboxException("Please enter input into all text fields.");
 
             //Fetch input from text-fields and create Item object
-            Item newItem = new Item(database.getNextItemId(), txtItemName.getText(), txtItemAuthor.getText());
+            Item newItem = new Item(txtItemName.getText(), txtItemAuthor.getText());
             database.addItem(newItem);
-            controller.tblCollection.refresh();
+
+            //Close stage
             stage.close();
         }
         catch (Exception e){

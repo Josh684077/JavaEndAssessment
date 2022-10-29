@@ -21,12 +21,12 @@
    <children>
       <TextField fx:id="txtUsername" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onTxtUsernameAction" prefHeight="25.0" prefWidth="197.0" promptText="Username" GridPane.halignment="LEFT" GridPane.valignment="TOP">
          <GridPane.margin>
-            <Insets bottom="50.0" left="50.0" top="100.0" />
+            <Insets bottom="50.0" left="50.0" top="90.0" />
          </GridPane.margin>
       </TextField>
       <Button fx:id="btnLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onBtnLoginClick" prefHeight="25.0" prefWidth="110.0" style="-fx-text-fill: white; -fx-background-color: blue; -fx-font-size: 13;" text="Login" GridPane.halignment="LEFT" GridPane.valignment="TOP">
          <GridPane.margin>
-            <Insets left="50.0" top="200.0" />
+            <Insets left="50.0" top="210.0" />
          </GridPane.margin>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -34,7 +34,7 @@
       </Button>
       <PasswordField fx:id="txtPassword" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#onTxtPasswordAction" prefHeight="25.0" prefWidth="197.0" promptText="Password" GridPane.halignment="LEFT" GridPane.valignment="TOP">
          <GridPane.margin>
-            <Insets left="50.0" top="130.0" />
+            <Insets left="50.0" top="120.0" />
          </GridPane.margin>
       </PasswordField>
       <Label fx:id="lblLoginTitle" text="Login" GridPane.halignment="LEFT" GridPane.valignment="TOP">
@@ -42,13 +42,16 @@
             <Font size="18.0" />
          </font>
          <GridPane.margin>
-            <Insets left="50.0" top="50.0" />
+            <Insets left="50.0" top="40.0" />
          </GridPane.margin>
       </Label>
-      <Label id="errorText" fx:id="lblLoginError" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="36.0" prefWidth="530.0" styleClass="errorText" stylesheets="@style.css" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+      <Label id="errorText" fx:id="lblLoginError" alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="46.0" prefWidth="297.0" styleClass="errorText" stylesheets="@style.css" wrapText="true" GridPane.halignment="LEFT" GridPane.valignment="TOP">
          <GridPane.margin>
-            <Insets left="50.0" top="160.0" />
+            <Insets left="50.0" right="10.0" top="160.0" />
          </GridPane.margin>
+         <font>
+            <Font size="11.0" />
+         </font>
       </Label>
    </children>
 </GridPane>

@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,6 +16,7 @@ import java.util.ResourceBundle;
 public class UpdateItemWindowController implements Initializable {
 
     Database database;
+    Stage stage;
     Item item;
 
     @FXML
@@ -30,14 +32,15 @@ public class UpdateItemWindowController implements Initializable {
     @FXML
     Button btnItemAction = new Button();
 
-    public UpdateItemWindowController(Database database, Item item) {
+    public UpdateItemWindowController(Database database, Stage stage, Item item) {
         this.database = database;
+        this.stage = stage;
         this.item = item;
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //Specify labels for adding items
+        //Specify labels for updating items
         btnItemAction.setText("Update Item");
         lblItemTitle.setText("Update Item");
 
@@ -47,25 +50,24 @@ public class UpdateItemWindowController implements Initializable {
         //Insert item data into editable text-fields
         txtItemName.setText(item.getTitle());
         txtItemAuthor.setText(item.getAuthor());
-
     }
 
+    @FXML
     private void onBtnItemActionClick(){
         try{
             if (txtItemName.getText().isEmpty() || txtItemAuthor.getText().isEmpty())
                 throw new EmptyTextboxException("Please enter input into all text fields.");
 
-            //Retrieve editable data and store into Item
+            //Retrieve edited data and update the Item on the stack
             item.setTitle(txtItemName.getText());
             item.setAuthor(txtItemAuthor.getText());
+
+            //Close stage
+            stage.close();
         }
         catch (Exception e){
-
             lblItemError.setText(e.getMessage());
         }
-
-
-
     }
 
 }

@@ -5,14 +5,19 @@ import Models.Database;
 import Models.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-public class LoginWindowController {
+import java.net.URL;
+import java.util.ResourceBundle;
 
-    private Database database = new Database();
+public class LoginWindowController implements Initializable {
+
+    private Database database;
+    private String optionalDatabaseErrorMessage;
 
     @FXML
     private Button btnLogin;
@@ -22,6 +27,26 @@ public class LoginWindowController {
     private PasswordField txtPassword;
     @FXML
     private Label lblLoginError = new Label();
+
+
+
+    //Constructor
+    public LoginWindowController(Database database) {
+        this.database = database;
+        //No database error message is passed
+        optionalDatabaseErrorMessage = "";
+    }
+    //Constructor with error message in case of db error
+    public LoginWindowController(Database database, String errorMessage) {
+        this.database = database;
+        //When database error message is passed, store into variable for use in initialization method
+        optionalDatabaseErrorMessage = errorMessage;
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        lblLoginError.setText(optionalDatabaseErrorMessage);
+    }
 
     //On pressing login button
     @FXML
@@ -49,4 +74,6 @@ public class LoginWindowController {
     protected void onTxtPasswordAction(){
         onBtnLoginClick();
     }
+
+
 }

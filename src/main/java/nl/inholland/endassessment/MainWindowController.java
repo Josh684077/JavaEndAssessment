@@ -2,6 +2,7 @@ package nl.inholland.endassessment;
 
 import CustomExceptions.EmptyTextboxException;
 import CustomExceptions.ItemAvailabilityException;
+import CustomExceptions.NoSelectedElementException;
 import Models.Item;
 import Models.Database;
 import Models.Member;
@@ -58,6 +59,8 @@ public class MainWindowController implements Initializable{
     //---Collection Tab---
     @FXML
     Tab collectionTab;
+    @FXML
+    Label lblCollectionError = new Label();
 
     //Collection table
     @FXML
@@ -82,6 +85,8 @@ public class MainWindowController implements Initializable{
     //---Members Tab---
     @FXML
     Tab membersTab;
+    @FXML
+    Label lblMembersError = new Label();
 
     //Members table
     @FXML
@@ -94,6 +99,14 @@ public class MainWindowController implements Initializable{
     TableColumn<Member, String> colMemberLastName;
     @FXML
     TableColumn<Member, String> colMemberBirthDate;
+
+    //Members buttons
+    @FXML
+    Button btnMemberAdd;
+    @FXML
+    Button btnMemberUpdate;
+    @FXML
+    Button btnMemberDelete;
 
     //Constructor
     public MainWindowController(User user, Database database){
@@ -116,9 +129,10 @@ public class MainWindowController implements Initializable{
         lblWelcomeUser.setText("Welcome, " + loggedInUser.getName());
     }
 
-    private void loadItems(){
+    public void loadItems(){
 
-        //Load observable list from database
+        //Reload observable list from database
+        items = null;
         items = FXCollections.observableArrayList(database.getItems());
 
         //Load items list into collection tableview
@@ -127,11 +141,14 @@ public class MainWindowController implements Initializable{
         colBookAuthor.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getAuthor()));
         colBookAvailable.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getAvailableAsString()));
         tblCollection.setItems(items);
+
+        tblCollection.refresh();
     }
 
-    private void loadMembers(){
+    public void loadMembers(){
 
-        //Load observable lists from database
+        //Reload observable lists from database
+        members = null;
         members = FXCollections.observableArrayList(database.getMembers());
 
         //Load members list into members tableview
@@ -140,6 +157,8 @@ public class MainWindowController implements Initializable{
         colMemberLastName.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getLastName()));
         colMemberBirthDate.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getDateOfBirthAsString()));
         tblMembers.setItems(members);
+
+        tblMembers.refresh();
     }
 
     @FXML
@@ -157,9 +176,8 @@ public class MainWindowController implements Initializable{
             if(!item.getIsAvailable())
                 throw new ItemAvailabilityException("This item is not available for lending.");
 
-
+            //Update item and refresh tableview
             item.setIsAvailable(false);
-            database.updateItem(item);
             tblCollection.refresh();
 
             //Display success popup
@@ -167,7 +185,7 @@ public class MainWindowController implements Initializable{
             lblLendingPopup.setTextFill(Color.BLACK);
             lblLendingPopup.setText(item.getTitle() + " has been lent to " + borrower.getFirstName() + " " + borrower.getLastName());
         }
-        catch(NumberFormatException e){
+        catch(NumberFormatException e){ //If int parse fails
             lblLendingPopup.setTextFill(Color.RED);
             lblLendingPopup.setText("Please enter numbers only.");
         }
@@ -182,8 +200,7 @@ public class MainWindowController implements Initializable{
         try{
 
             if (txtReceivingBookId.getText().isEmpty())
-                throw new EmptyTextboxException("Please enter an Item ID");
-
+                throw new EmptyTextboxException("Please enter an Item ID.");
 
             int itemID = Integer.parseInt(txtReceivingBookId.getText());
 
@@ -192,15 +209,14 @@ public class MainWindowController implements Initializable{
             if(item.getIsAvailable())
                 throw new ItemAvailabilityException("This item has not been lent out.");
 
-            //Update database and refresh list
+            //Update item and refresh tableview
             item.setIsAvailable(true);
-            database.updateItem(item);
             tblCollection.refresh();
 
             //Display success popup
             clearElements();
             lblReceivePopup.setTextFill(Color.BLACK);
-            lblReceivePopup.setText(item.getTitle() + " has been returned and is available again");
+            lblReceivePopup.setText(item.getTitle() + " has been returned and is available again.");
 
         }
         catch(NumberFormatException e){
@@ -211,41 +227,87 @@ public class MainWindowController implements Initializable{
             lblReceivePopup.setTextFill(Color.RED);
             lblReceivePopup.setText(e.getMessage());
         }
-
     }
 
     @FXML
     protected void onBtnItemAddClick(){
-
         LibraryApplication.openAddItemDialogue(database, this);
+        clearElements();
     }
 
     @FXML
     protected void onBtnItemUpdateClick(){
-        LibraryApplication.openUpdateItemDialogue(database, this);
+        try {
+            if(tblCollection.getSelectionModel().selectedItemProperty().isNull().get())
+                throw new NoSelectedElementException("Select an item to update.");
+
+            Item item = tblCollection.getSelectionModel().getSelectedItem();
+
+            LibraryApplication.openUpdateItemDialogue(database, this, item);
+            clearElements();
+
+        }
+        catch (Exception e){
+            lblCollectionError.setText(e.getMessage());
+        }
+
     }
 
     @FXML
     protected void onBtnItemDeleteClick(){
+        try {
+            if(tblCollection.getSelectionModel().selectedItemProperty().isNull().get())
+                throw new NoSelectedElementException("Select an item to delete.");
 
+            Item item = tblCollection.getSelectionModel().getSelectedItem();
+            database.deleteItem(item);
+            clearElements();
+            loadItems();
+
+        }
+        catch (Exception e){
+            lblCollectionError.setText(e.getMessage());
+        }
     }
 
     @FXML
     protected void onBtnMemberAddClick(){
-
+        LibraryApplication.openAddMemberDialogue(database, this);
+        clearElements();
     }
 
     @FXML
     protected void onBtnMemberUpdateClick(){
+        try {
+            if(tblMembers.getSelectionModel().selectedItemProperty().isNull().get())
+                throw new NoSelectedElementException("Select a member to update.");
 
+            Member member = tblMembers.getSelectionModel().getSelectedItem();
+            LibraryApplication.openUpdateMemberDialogue(database, this, member);
+            clearElements();
+        }
+        catch (Exception e){
+            lblMembersError.setText(e.getMessage());
+        }
     }
 
     @FXML
     protected void onBtnMemberDeleteClick(){
+        try {
+            if(tblMembers.getSelectionModel().selectedItemProperty().isNull().get())
+                throw new NoSelectedElementException("Select a member to delete.");
 
+            Member member = tblMembers.getSelectionModel().getSelectedItem();
+            database.deleteMember(member);
+            clearElements();
+            loadMembers();
+        }
+        catch (Exception e){
+            lblMembersError.setText(e.getMessage());
+        }
     }
 
-    //If enter is pressed after entering book or member id, trigger lend out btn
+    //Pressing enter after typing input into a text-field will trigger the corresponding button
     @FXML
     protected void onTxtLendingBookIdAction(){
         onBtnLendOutClick();
@@ -254,22 +316,12 @@ public class MainWindowController implements Initializable{
     protected void onTxtLendingMemberIdAction(){
         onBtnLendOutClick();
     }
-
-    private void loadAddBookPane(){
-
+    @FXML
+    protected void onTxtReceivingBookIdAction(){
+        onBtnReceiveClick();
     }
 
-    private void loadAddMemberPane(){
 
-    }
-
-    private void loadUpdateBookPane(){
-
-    }
-
-    private void loadUpdateMemberPane(){
-
-    }
 
     private void clearElements(){
         //Clear textboxes and labels
@@ -278,5 +330,7 @@ public class MainWindowController implements Initializable{
         txtReceivingBookId.setText("");
         lblLendingPopup.setText("");
         lblReceivePopup.setText("");
+        lblCollectionError.setText("");
+        lblMembersError.setText("");
     }
 }

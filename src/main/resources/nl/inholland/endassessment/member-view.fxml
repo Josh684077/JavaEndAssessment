@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="500.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="lblItemTitle" layoutX="41.0" layoutY="25.0" prefHeight="30.0" prefWidth="138.0" text="Member Title">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="41.0" layoutY="69.0" text="Member Code" />
+      <Label layoutX="163.0" layoutY="69.0" text="First Name" />
+      <Label layoutX="163.0" layoutY="125.0" text="Last Name" />
+      <TextField fx:id="txtMemberFirstName" layoutX="163.0" layoutY="93.0" prefHeight="25.0" prefWidth="174.0" />
+      <TextField fx:id="txtMemberLastName" layoutX="163.0" layoutY="150.0" prefHeight="25.0" prefWidth="174.0" />
+      <TextField fx:id="txtMemberCode" disable="true" layoutX="41.0" layoutY="93.0" prefHeight="25.0" prefWidth="55.0" />
+      <Button fx:id="btnMemberAction" layoutX="163.0" layoutY="252.0" mnemonicParsing="false" onAction="#onBtnMemberActionClick" prefHeight="30.0" prefWidth="174.0" text="Button">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Label fx:id="lblMemberError" alignment="TOP_LEFT" layoutX="362.0" layoutY="94.0" prefHeight="189.0" prefWidth="128.0" styleClass="errorText" wrapText="true" />
+      <Label layoutX="163.0" layoutY="182.0" text="Date of Birth (dd-mm-yyyy)" />
+      <DatePicker fx:id="datePicker" layoutX="163.0" layoutY="205.0" />
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</AnchorPane>
