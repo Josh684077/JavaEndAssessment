@@ -1,5 +1,7 @@
 package Models;
 
+import CustomExceptions.ItemNotFoundException;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -14,13 +16,13 @@ public class Member implements Serializable {
     private String firstName;
     private String lastName;
     private LocalDate dateOfBirth;
-
-    //private List<Item> borrowedItems; (not implemented yet)
+    private List<Item> borrowedItems;
 
     public Member(String firstName, String lastName, LocalDate dateOfBirth) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
+        borrowedItems = new ArrayList<>();
     }
 
 
@@ -30,6 +32,7 @@ public class Member implements Serializable {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
+        borrowedItems = new ArrayList<>();
     }
 
     //Getters
@@ -65,5 +68,14 @@ public class Member implements Serializable {
         this.dateOfBirth = dateOfBirth;
     }
 
+    //Borrow methods
+    public void borrowItem(Item item){
+        borrowedItems.add(item);
+    }
 
+    public void returnBook(Item item) throws ItemNotFoundException {
+        if (!borrowedItems.contains(item))
+            throw new ItemNotFoundException("This member does not own this item.");
+        borrowedItems.remove(item);
+    }
 }

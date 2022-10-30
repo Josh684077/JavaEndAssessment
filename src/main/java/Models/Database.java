@@ -96,7 +96,6 @@ public class Database {
             if (itemFile.exists() && memberFile.exists()){
                 items = readFile("Items.txt");
                 members = readFile("Members.txt");
-
             }
             else {
                 initialiseItems();

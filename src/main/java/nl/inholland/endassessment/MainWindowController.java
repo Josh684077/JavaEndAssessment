@@ -180,8 +180,9 @@ public class MainWindowController implements Initializable{
             if(!item.getIsAvailable())
                 throw new ItemAvailabilityException("This item is not available for lending.");
 
-            //Update item and refresh tableview
+            //Update item and refresh tableview (setIsAvailable also registers the lend date)
             item.setIsAvailable(false);
+
             tblCollection.refresh();
 
             //Display success popup
@@ -321,7 +322,8 @@ public class MainWindowController implements Initializable{
             List<Item> filteredItems = new ArrayList<>();
 
             for (Item item : items) {
-                if (item.getTitle().toLowerCase().contains((CharSequence)searchPhrase.toLowerCase()) || item.getAuthor().toLowerCase().contains((CharSequence)searchPhrase.toLowerCase()))
+                if (item.getTitle().toLowerCase().contains((CharSequence)searchPhrase.toLowerCase())
+                   || item.getAuthor().toLowerCase().contains((CharSequence)searchPhrase.toLowerCase()))
                     filteredItems.add(item);
             }
             loadItems(filteredItems);
@@ -338,7 +340,8 @@ public class MainWindowController implements Initializable{
             loadMembers(members);
         else {
             for (Member member : members) {
-                if (member.getFirstName().toLowerCase().contains((CharSequence)searchPhrase.toLowerCase()) || member.getLastName().toLowerCase().contains((CharSequence)searchPhrase.toLowerCase()))
+                if (member.getFirstName().toLowerCase().contains((CharSequence)searchPhrase.toLowerCase())
+                   || member.getLastName().toLowerCase().contains((CharSequence)searchPhrase.toLowerCase()))
                     filteredMembers.add(member);
             }
             loadMembers(filteredMembers);

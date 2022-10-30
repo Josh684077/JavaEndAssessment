@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="924ad1eb-9648-46e8-8587-08848ea723dc" name="Changes" comment="finished question mark">
+    <list default="true" id="924ad1eb-9648-46e8-8587-08848ea723dc" name="Changes" comment="javafx api fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/nl/inholland/endassessment/item-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/nl/inholland/endassessment/item-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/nl/inholland/endassessment/login-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/nl/inholland/endassessment/login-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/nl/inholland/endassessment/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/nl/inholland/endassessment/main-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/nl/inholland/endassessment/member-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/nl/inholland/endassessment/member-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Items.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Items.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Members.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Members.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/MainWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/MainWindowController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
