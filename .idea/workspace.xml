@@ -4,17 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="924ad1eb-9648-46e8-8587-08848ea723dc" name="Changes" comment="finished">
+    <list default="true" id="924ad1eb-9648-46e8-8587-08848ea723dc" name="Changes" comment="data relocation">
+      <change afterPath="$PROJECT_DIR$/src/main/data/Items.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/data/Members.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Models/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Models/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Models/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/AddItemWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/AddItemWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/AddMemberWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/AddMemberWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/LibraryApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/LibraryApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/LoginWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/LoginWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/MainWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/MainWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/UpdateItemWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/UpdateItemWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/UpdateMemberWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/inholland/endassessment/UpdateMemberWindowController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +141,21 @@
       <option name="project" value="LOCAL" />
       <updated>1667152685542</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="data relocation">
+      <created>1667154610411</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1667154610411</updated>
+    </task>
+    <task id="LOCAL-00008" summary="data relocation">
+      <created>1667154627272</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1667154627272</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,7 +181,8 @@
     <MESSAGE value="serialisation" />
     <MESSAGE value="finished question mark" />
     <MESSAGE value="finished" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished" />
+    <MESSAGE value="data relocation" />
+    <option name="LAST_COMMIT_MESSAGE" value="data relocation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

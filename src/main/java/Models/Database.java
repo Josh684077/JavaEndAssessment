@@ -14,15 +14,8 @@ public class Database {
     private List<Item> items;
     private List<Member> members;
 
-
-
     private int nextItemId;
     private int nextMemberId;
-
-    //Constructor
-    public Database(){
-
-    }
 
     //Getters
     public List<Item> getItems() {
@@ -81,21 +74,41 @@ public class Database {
         this.nextMemberId = (highestMemberId + 1);
     }
 
+    //Adding / deleting data
+    public void addItem(Item newItem){
+        newItem.setId(getNextItemId());
+        items.add(newItem);
+        nextItemId++;
+    }
+
+    public void addMember(Member newMember){
+        newMember.setId(getNextMemberId());
+        members.add(newMember);
+        nextMemberId++;
+    }
+
+    public void deleteItem(Item item){
+        items.remove(item);
+    }
+
+    public void deleteMember(Member member){
+        members.remove(member);
+    }
+
 
     //Database methods
-
     public void loadData() throws DatabaseException {
         try{
             //Hard-coded users
             initialiseUsers();
 
             //Check for files for items and members
-            File itemFile = new File("src/main/resources/data/Items.txt");
-            File memberFile = new File("src/main/resources/data/Members.txt");
+            File itemFile = new File("src\\main\\data\\Items.txt");
+            File memberFile = new File("src\\main\\data\\Members.txt");
 
             if (itemFile.exists() && memberFile.exists()){
-                items = readFile("Items.txt");
-                members = readFile("Members.txt");
+                items = readFile("src\\main\\data\\Items.txt");
+                members = readFile("src\\main\\data\\Members.txt");
             }
             else {
                 initialiseItems();
@@ -103,7 +116,6 @@ public class Database {
 
                 throw new DatabaseException();
             }
-
         }
         catch (DatabaseException exception){
             throw new DatabaseException();
@@ -155,30 +167,12 @@ public class Database {
         throw new UsernameNotFoundException();
     }
 
-    public void addItem(Item newItem){
-        newItem.setId(getNextItemId());
-        items.add(newItem);
-        nextItemId++;
-    }
 
-    public void addMember(Member newMember){
-        newMember.setId(getNextMemberId());
-        members.add(newMember);
-        nextMemberId++;
-    }
-
-    public void deleteItem(Item item){
-     items.remove(item);
-    }
-
-    public void deleteMember(Member member){
-        members.remove(member);
-    }
 
     public void serialiseEverything(){
 
-        File itemFile = new File("src/main/resources/data/Items.txt");
-        File memberFile = new File("src/main/resources/data/Members.txt");
+        File itemFile = new File("src\\main\\data\\Items.txt");
+        File memberFile = new File("src\\main\\data\\Members.txt");
 
         try {
             serialise(itemFile, (List<Serializable>)(List<?>)this.items);
@@ -188,6 +182,7 @@ public class Database {
             System.err.println("Changes were not saved to the database.");
         }
     }
+
     public void serialise(File file, List<Serializable> list) throws IOException {
 
         OutputStream fileStream = new FileOutputStream(file);
