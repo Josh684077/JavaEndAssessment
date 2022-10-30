@@ -90,8 +90,8 @@ public class Database {
             initialiseUsers();
 
             //Check for files for items and members
-            File itemFile = new File("Items.txt");
-            File memberFile = new File("Members.txt");
+            File itemFile = new File("src/main/resources/data/Items.txt");
+            File memberFile = new File("src/main/resources/data/Members.txt");
 
             if (itemFile.exists() && memberFile.exists()){
                 items = readFile("Items.txt");
@@ -177,8 +177,8 @@ public class Database {
 
     public void serialiseEverything(){
 
-        File itemFile = new File("Items.txt");
-        File memberFile = new File("Members.txt");
+        File itemFile = new File("src/main/resources/data/Items.txt");
+        File memberFile = new File("src/main/resources/data/Members.txt");
 
         try {
             serialise(itemFile, (List<Serializable>)(List<?>)this.items);

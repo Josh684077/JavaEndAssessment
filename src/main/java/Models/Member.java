@@ -6,7 +6,6 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Member implements Serializable {
@@ -24,8 +23,6 @@ public class Member implements Serializable {
         this.dateOfBirth = dateOfBirth;
         borrowedItems = new ArrayList<>();
     }
-
-
 
     public Member(int id, String firstName, String lastName, LocalDate dateOfBirth){
         this.id = id;

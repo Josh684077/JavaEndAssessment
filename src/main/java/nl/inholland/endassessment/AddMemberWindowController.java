@@ -1,7 +1,6 @@
 package nl.inholland.endassessment;
 
 import CustomExceptions.EmptyTextboxException;
-import CustomExceptions.WrongInputException;
 import Models.Database;
 import Models.Member;
 import javafx.fxml.FXML;
@@ -10,10 +9,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
-
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

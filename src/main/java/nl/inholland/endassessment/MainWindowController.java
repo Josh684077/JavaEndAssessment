@@ -13,9 +13,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
-
 import java.net.URL;
 import java.util.*;
 
@@ -28,19 +26,13 @@ public class MainWindowController implements Initializable{
     private ObservableList<Item> items;
     private ObservableList<Member> members;
 
+    //FXML Elements
     //Main pane
     @FXML
-    AnchorPane mainPane;
-    @FXML
-    Label lblLibraryTitle;
-    @FXML
     Label lblWelcomeUser = new Label();
-    @FXML
-    TabPane tabControl;
+
 
     //---Lending/Receiving Tab---
-    @FXML
-    Tab lendingTab;
     @FXML
     TextField txtLendingMemberId;
     @FXML
@@ -51,14 +43,9 @@ public class MainWindowController implements Initializable{
     Label lblLendingPopup = new Label();
     @FXML
     Label lblReceivePopup = new Label();
-    @FXML
-    Button btnReceive;
-    @FXML
-    Button btnLendOut;
+
 
     //---Collection Tab---
-    @FXML
-    Tab collectionTab;
     @FXML
     Label lblCollectionError = new Label();
 
@@ -76,17 +63,8 @@ public class MainWindowController implements Initializable{
     @FXML
     TextField txtSearchBoxCollection;
 
-    //Collection buttons
-    @FXML
-    Button btnItemAdd;
-    @FXML
-    Button btnItemUpdate;
-    @FXML
-    Button btnItemDelete;
 
     //---Members Tab---
-    @FXML
-    Tab membersTab;
     @FXML
     Label lblMembersError = new Label();
 
@@ -103,14 +81,6 @@ public class MainWindowController implements Initializable{
     TableColumn<Member, String> colMemberBirthDate;
     @FXML
     TextField txtSearchBoxMembers;
-
-    //Members buttons
-    @FXML
-    Button btnMemberAdd;
-    @FXML
-    Button btnMemberUpdate;
-    @FXML
-    Button btnMemberDelete;
 
     //Constructor
     public MainWindowController(User user, Database database){
@@ -133,37 +103,7 @@ public class MainWindowController implements Initializable{
         lblWelcomeUser.setText("Welcome, " + loggedInUser.getName());
     }
 
-    public void loadItems(List<Item> itemsList){
 
-        //Reload observable list from database
-        items = null;
-        items = FXCollections.observableArrayList(itemsList);
-
-        //Load items list into collection tableview
-        colBookId.setCellValueFactory(cell -> new SimpleStringProperty(Integer.toString(cell.getValue().getId())));
-        colBookTitle.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getTitle()));
-        colBookAuthor.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getAuthor()));
-        colBookAvailable.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getAvailableAsString()));
-        tblCollection.setItems(items);
-
-        tblCollection.refresh();
-    }
-
-    public void loadMembers(List<Member> membersList){
-
-        //Reload observable lists from database
-        members = null;
-        members = FXCollections.observableArrayList(membersList);
-
-        //Load members list into members tableview
-        colMemberId.setCellValueFactory(cell -> new SimpleStringProperty(Integer.toString(cell.getValue().getId())));
-        colMemberFirstName.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getFirstName()));
-        colMemberLastName.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getLastName()));
-        colMemberBirthDate.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getDateOfBirthAsString()));
-        tblMembers.setItems(members);
-
-        tblMembers.refresh();
-    }
 
     @FXML
     protected void onBtnLendOutClick(){
@@ -362,8 +302,9 @@ public class MainWindowController implements Initializable{
         onBtnReceiveClick();
     }
 
+    //Miscellaneous UI methods
     private void clearElements(){
-        //Clear textboxes and labels
+        //Clear text-fields and labels
         txtLendingBookId.setText("");
         txtLendingMemberId.setText("");
         txtReceivingBookId.setText("");
@@ -371,6 +312,38 @@ public class MainWindowController implements Initializable{
         lblReceivePopup.setText("");
         lblCollectionError.setText("");
         lblMembersError.setText("");
+    }
+
+    public void loadItems(List<Item> itemsList){
+
+        //Reload observable list from database
+        items = null;
+        items = FXCollections.observableArrayList(itemsList);
+
+        //Load items list into collection tableview
+        colBookId.setCellValueFactory(cell -> new SimpleStringProperty(Integer.toString(cell.getValue().getId())));
+        colBookTitle.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getTitle()));
+        colBookAuthor.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getAuthor()));
+        colBookAvailable.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getAvailableAsString()));
+        tblCollection.setItems(items);
+
+        tblCollection.refresh();
+    }
+
+    public void loadMembers(List<Member> membersList){
+
+        //Reload observable lists from database
+        members = null;
+        members = FXCollections.observableArrayList(membersList);
+
+        //Load members list into members tableview
+        colMemberId.setCellValueFactory(cell -> new SimpleStringProperty(Integer.toString(cell.getValue().getId())));
+        colMemberFirstName.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getFirstName()));
+        colMemberLastName.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getLastName()));
+        colMemberBirthDate.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getDateOfBirthAsString()));
+        tblMembers.setItems(members);
+
+        tblMembers.refresh();
     }
 
 

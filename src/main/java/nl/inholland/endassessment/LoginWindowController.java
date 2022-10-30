@@ -3,7 +3,6 @@ package nl.inholland.endassessment;
 import CustomExceptions.EmptyTextboxException;
 import Models.Database;
 import Models.User;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -19,6 +18,7 @@ public class LoginWindowController implements Initializable {
     private Database database;
     private String optionalDatabaseErrorMessage;
 
+    //FXML Elements
     @FXML
     private Button btnLogin;
     @FXML

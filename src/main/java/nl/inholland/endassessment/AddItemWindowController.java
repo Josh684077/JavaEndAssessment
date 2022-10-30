@@ -3,15 +3,12 @@ package nl.inholland.endassessment;
 import CustomExceptions.EmptyTextboxException;
 import Models.Database;
 import Models.Item;
-import Models.Member;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -20,8 +17,9 @@ public class AddItemWindowController implements Initializable {
     Database database;
     Stage stage;
 
+    //FXML Elements
     @FXML
-    Label lblItemTitle = new Label();
+     Label lblItemTitle = new Label();
     @FXML
     Label lblItemError = new Label();
     @FXML
@@ -63,7 +61,7 @@ public class AddItemWindowController implements Initializable {
             stage.close();
         }
         catch (Exception e){
-
+            lblItemError.setText(e.getMessage());
         }
 
     }

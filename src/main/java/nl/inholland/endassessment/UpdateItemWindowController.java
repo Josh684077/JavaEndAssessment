@@ -9,7 +9,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -19,6 +18,7 @@ public class UpdateItemWindowController implements Initializable {
     Stage stage;
     Item item;
 
+    //FXML Elements
     @FXML
     Label lblItemTitle = new Label();
     @FXML
