@@ -95,7 +95,6 @@ public class Database {
         members.remove(member);
     }
 
-
     //Database methods
     public void loadData() throws DatabaseException {
         try{
