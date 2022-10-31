@@ -17,6 +17,9 @@ public class Database {
     private int nextItemId;
     private int nextMemberId;
 
+    private final String itemFilePath = "src\\main\\data\\Items.txt";
+    private final String memberFilePath = "src\\main\\data\\Members.txt";
+
     //Getters
     public List<Item> getItems() {
         return items;
@@ -32,22 +35,22 @@ public class Database {
         return nextMemberId;
     }
 
-    public Item getItemById(int id) throws Exception {
+    public Item getItemById(int id) throws ItemNotFoundException {
         for (Item item : items){
 
             if(id == item.getId())
                 return item;
         }
-        //Only reachable if the method does not return
+        //Only reachable if the method does not return an item
         throw new ItemNotFoundException("No item with the given ID");
     }
 
-    public Member getMemberById(int id) throws Exception {
+    public Member getMemberById(int id) throws MemberNotFoundException {
         for (Member member : members){
             if (id == member.getId())
                 return member;
         }
-        //Only reachable if the method does not return
+        //Only reachable if the method does not return a member
         throw new MemberNotFoundException("No member with the given ID");
     }
 
@@ -101,13 +104,14 @@ public class Database {
             //Hard-coded users
             initialiseUsers();
 
-            //Check for files for items and members
-            File itemFile = new File("src\\main\\data\\Items.txt");
-            File memberFile = new File("src\\main\\data\\Members.txt");
 
-            if (itemFile.exists() && memberFile.exists()){
-                items = readFile("src\\main\\data\\Items.txt");
-                members = readFile("src\\main\\data\\Members.txt");
+            File itemFile = new File(itemFilePath);
+            File memberFile = new File(memberFilePath);
+
+            //Check if files exist and contain data
+            if (itemFile.exists() && memberFile.exists() && itemFile.length() >= 0 && memberFile.length() >= 0){
+                items = readFile(itemFilePath);
+                members = readFile(memberFilePath);
             }
             else {
                 initialiseItems();
@@ -116,7 +120,7 @@ public class Database {
                 throw new DatabaseException();
             }
         }
-        catch (DatabaseException exception){
+        catch (DatabaseException | IOException exception){
             throw new DatabaseException();
         }
         finally{
@@ -170,8 +174,8 @@ public class Database {
 
     public void serialiseEverything(){
 
-        File itemFile = new File("src\\main\\data\\Items.txt");
-        File memberFile = new File("src\\main\\data\\Members.txt");
+        File itemFile = new File(itemFilePath);
+        File memberFile = new File(memberFilePath);
 
         try {
             serialise(itemFile, (List<Serializable>)(List<?>)this.items);
@@ -193,15 +197,22 @@ public class Database {
         fileStream.close();
     }
 
-    public <T>ArrayList<T> readFile(String fileName) throws DatabaseException {
-        try {
-            FileInputStream inputStream = new FileInputStream(fileName);
-            ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
+    public <T>List<T> readFile(String fileName) throws DatabaseException, IOException {
+        FileInputStream inputStream = null;
+        ObjectInputStream objectInputStream = null;
 
-            return (ArrayList<T>)objectInputStream.readObject();
+        try {
+            inputStream = new FileInputStream(fileName);
+            objectInputStream = new ObjectInputStream(inputStream);
+
+            return (List<T>) objectInputStream.readObject();
         }
-        catch (Exception e){
+        catch (Exception e) {
             throw new DatabaseException();
+        }
+        finally {
+            inputStream.close();
+            objectInputStream.close();
         }
     }
 }
